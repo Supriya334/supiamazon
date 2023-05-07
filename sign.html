@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign up Page</title>
+  <style>
+*{
+    box-sizing: border-box;
+   
+}
+h1{
+    font-family:cursive;
+    font-size:26px;
+    margin:auto;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    text-decoration:underline;
+    color:rgb(245, 55, 125);
+    /* background-color: rgb(73, 108, 248); */
+}
+body{
+    background-image: url(https://wallpapercave.com/wp/wp4438597.jpg);
+    background-size: 1600px;
+}
+form{
+    margin:auto;
+    margin-top: 20px;
+    text-align: center;
+    width:35%;
+    display: flex;
+    flex-direction: column;
+    /* border:2px solid red; */
+    justify-content: center;
+    align-items:center;
+    gap:4%;
+    margin-top: 5%;
+    
+    }
+      form > input{
+        margin:3%;
+        width:60%;
+        justify-content: center;
+        height: 20%;
+        font-size: 20px;
+        border-radius: 10px;
+        padding-left: 15px;
+
+        /* background-color: rgb(85, 85, 249); */
+    }
+    form > input:hover{
+      color:mediumorchid
+    }
+    body{
+    margin: auto;
+    }
+    .nav{
+     display: flex;
+     justify-content: space-between; 
+    }
+    .nav > a{
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    margin:65px;
+    border: 2px solid rgb(10, 2, 2);
+    background-color: rgb(237, 136, 237);
+    width:100px;
+    border-radius: 5px;
+    }
+    .nav > a:hover{
+      color: crimson;
+    }
+
+  </style>
+</head>
+<body>
+    <form>
+        <h1>ENTER DETAILS TO SIGN-UP</h1>
+      <input type="text" id="name" placeholder="Enter your name">
+      <input type="email" id="email" placeholder="Enter your email">
+      <input type="password" id="password" placeholder="Enter your password">
+      <input type="submit" id="submit" value="Submit"/>
+
+      <div class="nav">
+        <a href="./index.html" id="first">Signup</a>
+        <!-- <a href="./signin.html" id>Signin</a> -->
+      </div>
+    </form>
+
+</body>
+<script>
+ 
+  document.querySelector("form").addEventListener("submit",userSignin)
+  let miltiUser =JSON.parse(localStorage.getItem("account-data")) || []
+  function userSignin(e){
+     e.preventDefault()
+   
+       let obj = {
+       name : document.getElementById("name").value,
+       email : document.getElementById("email").value,
+       password : document.getElementById("password").value
+       }
+       miltiUser.push(obj)
+       localStorage.setItem("account-data",JSON.stringify(miltiUser))
+       alert("User Registered successfully")
+       window.location.href="index.html"
+  }
+ 
+  
+</script>
+
+</html>

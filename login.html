@@ -1,0 +1,230 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+        *{
+            box-sizing: border-box;
+            margin: 0%;
+            padding: 0%;
+        }
+        body{
+            background-image: url(https://live.staticflickr.com/7822/47405068691_283c2812e2_b.jpg);
+            background-size: cover;
+          
+        }
+        .form-box{
+            width: 40%;
+            max-width: 280px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            /* padding: 50px 60px 70px; */
+            text-align: center;
+           
+        }
+        .form-box h1{
+            font-size: 30px;
+            margin-bottom: 60px;
+            color: rgb(9, 9, 9);
+            position: relative;
+        }
+        .form-box h1::after{
+            content: '';
+            width: 30px;
+            height: 40px;
+            border-radius: 4px;
+            background: #3c0000;
+            /* bottom: -12px; */
+            left: 50%;
+            transform: translate(-50%);
+
+        }
+        .input-field{
+            background: rgb(230, 230, 239);
+            margin:30px 0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+
+        }
+        input{
+            width:100%;
+            background: transparent;
+            /* padding: 18px 15px; */
+            padding:10px;
+            border-radius: 4px;
+        }
+        form p{
+            text-align: left;
+        }
+        form p a{
+            text-decoration: none;
+        }
+        .btn-field{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn-field button{
+            background: rgb(0, 51, 128);
+            color: #fff;
+            height: 40px;
+            width: 70px;
+            border-radius:4px;
+            cursor: pointer;
+           
+        }
+        .input-group{
+            height: 280px;
+            
+        }
+    </style>
+</head>
+<body>
+    
+<div class="form-box">
+    <h1>Sign Up</h1>
+    <form>
+        <div class="input-group">
+            <div class="input-field">
+                <input type="text" placeholder="Name">
+                
+            </div>
+            <div class="input-group">
+                <div class="input-field">
+                    <input type="email" placeholder="Email">
+                    
+                </div>
+                <div class="input-group">
+                    <div class="input-field">
+                        <input type="password" placeholder="password">
+                        
+                    </div>
+                    <p>Lost password <a href="">Click Here</a> </p>
+        </div>
+        <div class="btn-field">
+            <button type="button">Sign Up</button>
+            <button type="button">Sign In</button>
+        </div>
+    </form>
+</div>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login page</title>
+    <style>
+*{
+  box-sizing: border-box;
+}
+body{
+  background-image: url(https://wallpapertag.com/wallpaper/full/e/7/1/422283-cool-hd-universe-wallpaper-1920x1080-for-ipad.jpg);
+  background-size: 1800px;
+}
+#signin{
+  display:flex;
+  
+}
+form{
+    margin:auto;
+    margin-top: 20px;
+    text-align: center;
+    width:35%;
+    display: flex;
+    flex-direction: column;
+    /* border:2px solid red; */
+    justify-content: center;
+    align-items:center;
+    gap:4%;
+    margin-top: 5%;
+    
+    }
+      form > input{
+        margin:3%;
+        width:60%;
+        justify-content: center;
+        height: 20%;
+        font-size: 20px;
+        background-color: rgb(177, 177, 238);
+        border-radius: 10px;
+    }
+    form > input:hover{
+      color:rgb(139, 5, 172);
+    }
+    h1{
+    font-family:cursive;
+    font-size:20px;
+    margin:auto;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    text-decoration:underline;
+    color:rgb(14, 90, 241);
+    
+    }
+    .nav{
+      display: flex;
+      padding:10px;
+      
+    }
+    .nav > a{
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    margin:65px;
+    border: 2px solid rgb(10, 2, 2);
+    background-color: rgb(245, 196, 234);
+    width:100px;
+    border-radius: 5px;
+    }
+    .nav > a:hover{
+      color: rgb(167, 119, 240);
+    }
+
+</style>
+ </head>
+ <body>
+   
+    <div id="signin">
+      
+      <form>
+        <h1>ENTER YOUR DETAILS TO LOG-IN</h1>
+        <input type="email" id="email" placeholder="Enter Your Email"/>
+        <input type="password" id="password" placeholder="Enter Your Password"/>
+        <input type="submit" value="Submit" />
+        <div class="nav">
+          <a href="./index.html">Login</a>
+          <a href="./signin.html">signup</a>
+      </form>
+    </div>
+  </body>
+  <script>
+
+   
+    document.querySelector("form").addEventListener("submit",userLogin)
+    let userData = JSON.parse(localStorage.getItem("account-data"))|| []
+    function userLogin(e){
+      e.preventDefault()
+    let heading = document.getElementById("heading")
+     let  email = document.getElementById("email").value
+     let  password = document.getElementById("password").value
+
+
+      let data = userData.find(user => user.email === email && user.password === password)
+        
+      if(data){
+        alert("log in successfully")
+      } else {
+      alert("please check your email or password")
+      }
+      window.location.href="index.html"
+ }
+
+  </script>
+</html>
